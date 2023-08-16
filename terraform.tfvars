@@ -27,6 +27,5 @@ master-password = "Ashabi_123"
 
 master-username = "mayor"
 
-public_key_path = "/Users/mozart/.ssh/terraform-pbl.pub"
 
 

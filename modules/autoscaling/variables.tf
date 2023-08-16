@@ -46,6 +46,5 @@ variable "tags" {
   default     = {}
 }
 
-variable "public_key_path" {}
 
 

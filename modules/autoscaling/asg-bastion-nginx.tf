@@ -24,12 +24,18 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 }
 
 
-#create bastion launch template
-resource "aws_key_pair" "terraform-pbl" {
-  key_name   = "pbl-key"
-  public_key = file(var.public_key_path)
+#create key pair
+data "local_file" "public_key" {
+  depends_on = [null_resource.create_key_pair]  # Dependency to ensure the file is read after it's generated
+  filename = "/Users/mozart/.ssh/terraform-pbl.pub"
 }
 
+resource "aws_key_pair" "terraform-pbl" {
+  key_name   = "pbl-key"
+  public_key = data.local_file.public_key.content
+}
+
+#create bastion launch template
 resource "aws_launch_template" "bastion-launch-template" {
   image_id               = var.ami-bastion
   instance_type          = "t2.micro"
@@ -60,7 +66,6 @@ resource "aws_launch_template" "bastion-launch-template" {
     )
   }
 
-  user_data = filebase64("${path.module}/bastion.sh")
 }
 
 # ---- Autoscaling for bastion  hosts
