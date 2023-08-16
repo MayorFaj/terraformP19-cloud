@@ -52,4 +52,3 @@ variable "master-password" {
 variable "master-username" {
   type = string
 }
-

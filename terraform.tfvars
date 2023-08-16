@@ -26,6 +26,3 @@ account_no = "953523290929"
 master-password = "Ashabi_123"
 
 master-username = "mayor"
-
-
-
