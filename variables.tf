@@ -53,4 +53,3 @@ variable "master-username" {
   type = string
 }
 
-variable "public_key_path" {}
