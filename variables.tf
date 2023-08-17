@@ -86,4 +86,6 @@ variable "key_pair" {
   type = string
 }
 
-variable "myip" {}
+variable "myip" {
+  type = list(any)
+}
