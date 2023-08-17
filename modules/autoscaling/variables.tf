@@ -46,5 +46,7 @@ variable "tags" {
   default     = {}
 }
 
-
+variable "key_pair" {
+  type = string
+}
 
