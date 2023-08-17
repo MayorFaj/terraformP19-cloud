@@ -7,7 +7,7 @@ resource "aws_instance" "Jenkins" {
   subnet_id                   = var.subnets-compute
   vpc_security_group_ids      = [var.sg-compute]
   associate_public_ip_address = true
-  key_name                    = var.keypair
+  key_name                    = var.key_pair
 
  tags = merge(
     var.tags,
@@ -25,7 +25,7 @@ resource "aws_instance" "sonbarqube" {
   subnet_id                   = var.subnets-compute
   vpc_security_group_ids      = [var.sg-compute]
   associate_public_ip_address = true
-  key_name                    = var.keypair
+  key_name                    = var.key_pair
 
 
    tags = merge(
@@ -43,7 +43,7 @@ resource "aws_instance" "artifactory" {
   subnet_id                   = var.subnets-compute
   vpc_security_group_ids      = [var.sg-compute]
   associate_public_ip_address = true
-  key_name                    = var.keypair
+  key_name                    = var.key_pair
 
 
   tags = merge(

@@ -1,6 +1,6 @@
 #-- compute/variables.tf
 
-variable "keypair" {}
+variable "key_pair" {}
 
 variable "subnets-compute" {}
 

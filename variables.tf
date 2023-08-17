@@ -81,3 +81,7 @@ variable "ami-jfrog" {
   type = string
   description = "AMI ID for compute"
 }
+
+variable "key_pair" {
+  type = string
+}

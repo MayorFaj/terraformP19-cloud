@@ -10,7 +10,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = aws_key_pair.terraform-pbl.id
+  key_name = var.key_pair
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -76,7 +76,7 @@ resource "aws_launch_template" "tooling-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = aws_key_pair.terraform-pbl.id
+  key_name = var.key_pair
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
