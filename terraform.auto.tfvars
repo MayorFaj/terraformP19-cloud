@@ -39,4 +39,4 @@ master-password = "Ashabi_123"
 
 master-username = "mayor"
 
-pub_key = "pal-key"
+key_pair = "pal-key"

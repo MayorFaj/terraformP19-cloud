@@ -88,7 +88,7 @@ module "autoscaling" {
   wordpress-alb-tg = module.alb.wordpress_tg
   tooling-alb-tg   = module.alb.tooling_tg
   instance_profile = module.networking.instance_profile
-  key_pair = var.pub_key
+  key_pair = var.key_pair
 }
 
 module "database" {
@@ -110,7 +110,7 @@ module "filesystem" {
 
 module "compute" {
   source = "./modules/compute"
-  key_pair = var.pub_key
+  key_pair = var.key_pair
   subnets-compute = module.networking.public_subnet_1
   sg-compute = module.security.ext_alb_sg
   ami-jenkins = var.ami-jenkins
