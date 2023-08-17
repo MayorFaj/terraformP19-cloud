@@ -44,17 +44,17 @@ resource "aws_lb_target_group" "nginx-tg" {
 }
 
 #create listener group for this target group
-resource "aws_lb_listener" "nginx-listner" {
-  load_balancer_arn = aws_lb.ext-alb.arn
-  port              = var.port
-  protocol          = var.protocol
-  certificate_arn   = aws_acm_certificate_validation.mayorfaj.certificate_arn
+# resource "aws_lb_listener" "nginx-listner" {
+#   load_balancer_arn = aws_lb.ext-alb.arn
+#   port              = var.port
+#   protocol          = var.protocol
+#   certificate_arn   = aws_acm_certificate_validation.mayorfaj.certificate_arn
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.nginx-tg.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.nginx-tg.arn
+#   }
+# }
 
 
 #create internal application load balancer
@@ -123,30 +123,30 @@ resource "aws_lb_target_group" "tooling-tg" {
 #For this aspect a single listener was created for the wordpress which is default,
 # A rule was created to route traffic to tooling when the host header changes
 
-resource "aws_lb_listener" "webserver-listener" {
-  load_balancer_arn = aws_lb.int_alb.arn
-  port              = var.port
-  protocol          = var.protocol
-  certificate_arn   = aws_acm_certificate_validation.mayorfaj.certificate_arn
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.wordpress-tg.arn
-  }
-}
+# resource "aws_lb_listener" "webserver-listener" {
+#   load_balancer_arn = aws_lb.int_alb.arn
+#   port              = var.port
+#   protocol          = var.protocol
+#   certificate_arn   = aws_acm_certificate_validation.mayorfaj.certificate_arn
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.wordpress-tg.arn
+#   }
+# }
 
 #listener rule for tooling target
-resource "aws_lb_listener_rule" "tooling-listener" {
-  listener_arn = aws_lb_listener.webserver-listener.arn
-  priority     = 99
+# resource "aws_lb_listener_rule" "tooling-listener" {
+#   listener_arn = aws_lb_listener.webserver-listener.arn
+#   priority     = 99
 
-  action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.tooling-tg.arn
-  }
+#   action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.tooling-tg.arn
+#   }
 
-  condition {
-    host_header {
-      values = ["tooling.mayorfaj.io"]
-    }
-  }
-}
+#   condition {
+#     host_header {
+#       values = ["tooling.mayorfaj.io"]
+#     }
+#   }
+# }

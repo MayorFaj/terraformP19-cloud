@@ -41,6 +41,7 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 #   public_key = data.local_file.public_key.content
 # }
 
+#-----------------------------------------------------
 #create bastion launch template
 resource "aws_launch_template" "bastion-launch-template" {
   image_id               = var.ami-bastion
@@ -164,10 +165,10 @@ resource "aws_autoscaling_group" "nginx-asg" {
 }
 
 #--- attaching autoscaling group of nginx to external load balancer
-resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
-  autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
-  lb_target_group_arn    = var.nginx-alb-tg
-}
+# resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
+#   autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
+#   lb_target_group_arn    = var.nginx-alb-tg
+# }
 
 
 
