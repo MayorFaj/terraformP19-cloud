@@ -32,12 +32,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "ami" {
-  type        = string
-  description = "AMI ID for launch template"
-}
-
-
 
 variable "account_no" {
   type = string
@@ -55,28 +49,35 @@ variable "master-username" {
 
 variable "ami-bastion" {
   type = string
+  description = "AMI ID for bastion"
 }
 
 variable "ami-nginx" {
   type = string
+  description = "AMI ID for nginx reverse-proxy"
 }
 
 variable "ami-wordpress" {
   type = string
+  description = "AMI ID for wordpress webservers"
 }
 
 variable "ami-tooling" {
   type = string
+  description = "AMI ID for tooling webservers"
 }
 
 variable "ami-jenkins" {
   type = string
+  description = "AMI ID for compute"
 }
 
 variable "ami-sonar" {
   type = string
+  description = "AMI ID for compute"
 }
 
 variable "ami-jfrog" {
   type = string
+  description = "AMI ID for compute"
 }
