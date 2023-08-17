@@ -25,8 +25,12 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 
 
 #create key pair
+resource "null_resource" "create_key_pair" {
+    
+}
+
 data "local_file" "public_key" {
-  depends_on = [null_resource.create_key_pair]  # Dependency to ensure the file is read after it's generated
+  #depends_on = [null_resource.create_key_pair]  # Dependency to ensure the file is read after it's generated
   filename = "/Users/mozart/.ssh/terraform-pbl.pub"
 }
 
@@ -127,7 +131,6 @@ resource "aws_launch_template" "nginx-launch-template" {
     )
   }
 
-  user_data = filebase64("${path.module}/nginx.sh")
 }
 
 # ------ Autoscslaling group for reverse proxy nginx ---------
