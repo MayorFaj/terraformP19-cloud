@@ -77,6 +77,6 @@ variable "ami-sonar" {
   type = string
 }
 
-varible "ami-jfrog" {
+variable "ami-jfrog" {
   type = string
 }
