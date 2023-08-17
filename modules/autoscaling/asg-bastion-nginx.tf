@@ -25,12 +25,7 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 
 
 #create key pair
-resource "null_resource" "create_key_pair" {
-    
-}
-
 data "local_file" "public_key" {
-  #depends_on = [null_resource.create_key_pair]  # Dependency to ensure the file is read after it's generated
   filename = "/Users/mozart/.ssh/terraform-pbl.pub"
 }
 

@@ -1,38 +1,38 @@
 #--- root/main.tf ---
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "mayorfaj-dev-terraform-bucket"
-  force_destroy = true
-}
+# resource "aws_s3_bucket" "terraform_state" {
+#   bucket        = "mayorfaj-dev-terraform-bucket"
+#   force_destroy = true
+# }
 
-# Enable versioning so we can see the full revision history of our state files
-resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
-  bucket = aws_s3_bucket.terraform_state.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
+# # Enable versioning so we can see the full revision history of our state files
+# resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
+#   bucket = aws_s3_bucket.terraform_state.id
+#   versioning_configuration {
+#     status = "Enabled"
+#   }
+# }
 
-# Enable server-side encryption by default
-resource "aws_s3_bucket_server_side_encryption_configuration" "encrypt" {
-  bucket = aws_s3_bucket.terraform_state.id
+# # Enable server-side encryption by default
+# resource "aws_s3_bucket_server_side_encryption_configuration" "encrypt" {
+#   bucket = aws_s3_bucket.terraform_state.id
 
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
+#   rule {
+#     apply_server_side_encryption_by_default {
+#       sse_algorithm = "AES256"
+#     }
+#   }
+# }
 
-resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraform-locks"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-}
+# resource "aws_dynamodb_table" "terraform_locks" {
+#   name         = "terraform-locks"
+#   billing_mode = "PAY_PER_REQUEST"
+#   hash_key     = "LockID"
+#   attribute {
+#     name = "LockID"
+#     type = "S"
+#   }
+# }
 
 module "networking" {
   source                           = "./modules/networking"
@@ -71,10 +71,10 @@ module "autoscaling" {
   bastion-sg       = module.security.bastion_sg
   nginx-sg         = module.security.nginx_sg
   webserver-sg     = module.security.webserver_sg
-  ami-bastion      = var.ami
-  ami-nginx        = var.ami
-  ami-wordpress    = var.ami
-  ami-tooling      = var.ami
+  ami-bastion      = var.ami-bastion
+  ami-nginx        = var.ami-nginx
+  ami-wordpress    = var.ami-wordpress
+  ami-tooling      = var.ami-tooling
   private_subnet_1 = module.networking.private_subnet_1
   private_subnet_2 = module.networking.private_subnet_2
   private_subnet_3 = module.networking.private_subnet_3
@@ -112,7 +112,7 @@ module "compute" {
   keypair = module.autoscaling.key_pair
   subnets-compute = module.networking.public_subnet_1
   sg-compute = module.security.ext_alb_sg
-  ami-jenkins = var.ami
-  ami-sonar = var.ami
-  ami-jfrog = var.ami
+  ami-jenkins = var.ami-jenkins
+  ami-sonar = var.ami-sonar
+  ami-jfrog = var.ami-jfrog
 }

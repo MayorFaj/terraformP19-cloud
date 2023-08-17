@@ -52,3 +52,31 @@ variable "master-password" {
 variable "master-username" {
   type = string
 }
+
+variable "ami-bastion" {
+  type = string
+}
+
+variable "ami-nginx" {
+  type = string
+}
+
+variable "ami-wordpress" {
+  type = string
+}
+
+variable "ami-tooling" {
+  type = string
+}
+
+variable "ami-jenkins" {
+  type = string
+}
+
+variable "ami-sonar" {
+  type = string
+}
+
+varible "ami-jfrog" {
+  type = string
+}
