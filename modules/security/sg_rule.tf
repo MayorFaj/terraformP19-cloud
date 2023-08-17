@@ -140,11 +140,11 @@ resource "aws_security_group_rule" "inbound-artifactory" {
   security_group_id = aws_security_group.pbl["compute_sg"].id
 }
 
-resource "aws_security_group_rule" "inbound-bastion-ssh" {
+resource "aws_security_group_rule" "inbound-bastion-ssh-compute" {
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = var.myip
-  security_group_id = aws_security_group.pbl["bastion_sg"].id
+  source_security_group_id = aws_security_group.pbl["bastion_sg"].id
+  security_group_id = aws_security_group.pbl["compute_sg"].id
 }
