@@ -64,6 +64,7 @@ module "alb" {
 module "security" {
   source = "./modules/security"
   vpc_id = module.networking.vpc_id
+  myip = var.myip
 }
 
 module "autoscaling" {

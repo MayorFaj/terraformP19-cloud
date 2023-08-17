@@ -85,3 +85,5 @@ variable "ami-jfrog" {
 variable "key_pair" {
   type = string
 }
+
+variable "myip" {}

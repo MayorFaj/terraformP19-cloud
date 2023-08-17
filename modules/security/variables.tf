@@ -9,3 +9,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "myip" {
+  type = list(any)
+  sensitive = true
+}

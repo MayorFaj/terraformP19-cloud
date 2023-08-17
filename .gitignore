@@ -1,0 +1,2 @@
+#exclude myip.auto.tfvars file
+*.myip.auto.tfvars
