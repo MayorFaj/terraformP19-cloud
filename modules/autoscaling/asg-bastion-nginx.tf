@@ -25,7 +25,14 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 
 
 #create key pair
+resource "null_resource" "generate_ssh_key" {
+  provisioner "local-exec" {
+    command = "ssh-keygen -t rsa -b 4096 -N '' -f /Users/mozart/.ssh/terraform-pbl"
+  }
+}
+
 data "local_file" "public_key" {
+  depends_on = [ null_resource.generate_ssh_key ]
   filename = "/Users/mozart/.ssh/terraform-pbl.pub"
 }
 
