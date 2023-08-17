@@ -55,7 +55,7 @@ resource "aws_autoscaling_group" "wordpress-asg" {
   }
   tag {
     key                 = "Name"
-    value               = "wordpress-asg"
+    value               = "wordpress_asg"
     propagate_at_launch = true
   }
 }
@@ -124,7 +124,7 @@ resource "aws_autoscaling_group" "tooling-asg" {
 
   tag {
     key                 = "Name"
-    value               = "tooling-asg"
+    value               = "tooling_asg"
     propagate_at_launch = true
   }
 }

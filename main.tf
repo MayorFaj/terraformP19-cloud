@@ -113,7 +113,7 @@ module "compute" {
   source = "./modules/compute"
   key_pair = var.key_pair
   subnets-compute = module.networking.public_subnet_1
-  sg-compute = module.security.ext_alb_sg
+  sg-compute = module.security.compute_sg
   ami-jenkins = var.ami-jenkins
   ami-sonar = var.ami-sonar
   ami-jfrog = var.ami-jfrog

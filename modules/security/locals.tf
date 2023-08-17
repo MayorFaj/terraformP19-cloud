@@ -26,5 +26,9 @@ locals {
       name        = "datalayer_sg"
       description = "allow traffic from websever on nfs port and mysql port and bastion host on mysql port"
     }
+    compute_sg = {
+      name = "compute_sg"
+      description = "allow traffic on jenkins, sonarqube, and jfrog artifactory port and bastion host"
+    }
   }
 }

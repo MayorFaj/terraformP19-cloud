@@ -23,3 +23,7 @@ output "webserver_sg" {
 output "datalayer_sg" {
   value = aws_security_group.pbl["datalayer_sg"].id
 }
+
+output "compute_sg" {
+  value = aws_security_group.pbl["compute_sg"].id
+}
