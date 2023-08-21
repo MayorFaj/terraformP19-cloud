@@ -19,7 +19,7 @@ tags = {
   Billing-Account = "953523290929"
 }
 
-ami-bastion = "ami-09f0441eae8f5ccaf"
+ami-bastion = "ami-0ca8392cbaaa6d834"
 
 ami-nginx = "ami-00da6a61d5bd8544f"
 
