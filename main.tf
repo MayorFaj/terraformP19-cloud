@@ -80,9 +80,9 @@ module "autoscaling" {
   private_subnet_2 = module.networking.private_subnet_2
   private_subnet_3 = module.networking.private_subnet_3
   private_subnet_4 = module.networking.private_subnet_4
-  max_size         = 3
+  max_size         = 2
   min_size         = 1
-  desired_capacity = 2
+  desired_capacity = 1
   public_subnet_1  = module.networking.public_subnet_1
   public_subnet_2  = module.networking.public_subnet_2
   nginx-alb-tg     = module.alb.nginx_tg
