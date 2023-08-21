@@ -33,7 +33,7 @@ resource "aws_efs_file_system" "pbl-efs" {
   tags = merge(
     var.tags,
     {
-      Name = "pbl-efs"
+      Name = "pbl-efs1"
     },
   )
 }
