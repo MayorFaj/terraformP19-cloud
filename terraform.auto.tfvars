@@ -19,19 +19,19 @@ tags = {
   Billing-Account = "953523290929"
 }
 
-ami-bastion = "ami-0ca8392cbaaa6d834"
+ami-bastion = "ami-06f70a42ac193e4c2"
 
-ami-nginx = "ami-00da6a61d5bd8544f"
+ami-nginx = "ami-09801e5b89a48363c"
 
-ami-wordpress = "ami-04a51af9d6807f620"
+ami-wordpress = "ami-0d3b1fe306c70acbe"
 
-ami-tooling = "ami-04a51af9d6807f620"
+ami-tooling = "ami-0d3b1fe306c70acbe"
 
-ami-jenkins = "ami-03e8b3c02c31ec010"
+ami-jenkins = "ami-0d3b1fe306c70acbe"
 
-ami-sonar = "ami-03e8b3c02c31ec010"
+ami-sonar = "ami-0d3b1fe306c70acbe"
   
-ami-jfrog = "ami-03e8b3c02c31ec010"
+ami-jfrog = "ami-0d3b1fe306c70acbe"
 
 account_no = "953523290929"
 

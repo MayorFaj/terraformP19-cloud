@@ -38,7 +38,7 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 
 # resource "aws_key_pair" "terraform-pbl" {
 #   key_name   = "pbl-key"
-#   public_key = data.local_file.public_key.content
+#   public_key = file("../module/autoscaling/pbl-key.pub")
 # }
 
 #-----------------------------------------------------
