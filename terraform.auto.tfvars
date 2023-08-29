@@ -27,11 +27,11 @@ ami-wordpress = "ami-0d3b1fe306c70acbe"
 
 ami-tooling = "ami-0d3b1fe306c70acbe"
 
-ami-jenkins = "ami-0d3b1fe306c70acbe"
+ami-jenkins = "ami-059389aab1b29d8bc"
 
-ami-sonar = "ami-0d3b1fe306c70acbe"
+ami-sonar = "ami-059389aab1b29d8bc"
   
-ami-jfrog = "ami-0d3b1fe306c70acbe"
+ami-jfrog = "ami-059389aab1b29d8bc"
 
 account_no = "953523290929"
 
