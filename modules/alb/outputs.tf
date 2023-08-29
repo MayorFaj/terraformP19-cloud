@@ -11,17 +11,17 @@ output "internal_loadbancer" {
 }
 
 output "nginx_tg" {
-  value       = aws_lb_target_group.nginx-tg.id
+  value       = aws_lb_target_group.nginx-tg.arn
   description = "Target group for nginx"
 }
 
 output "wordpress_tg" {
-  value       = aws_lb_target_group.wordpress-tg.id
+  value       = aws_lb_target_group.wordpress-tg.arn
   description = "The target group for wordpress"
 }
 
 output "tooling_tg" {
-  value       = aws_lb_target_group.tooling-tg.id
+  value       = aws_lb_target_group.tooling-tg.arn
   description = "The target group for tooling"
 }
 
