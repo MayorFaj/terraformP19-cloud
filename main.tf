@@ -53,8 +53,8 @@ module "alb" {
   private_sg         = module.security.int_alb_sg
   pub_subnet_1       = module.networking.public_subnet_1
   pub_subnet_2       = module.networking.public_subnet_2
-  priv_subnet_1      = module.networking.private_subnet_1
-  priv_subnet_2      = module.networking.private_subnet_2
+  priv_subnet_3      = module.networking.private_subnet_3
+  priv_subnet_4      = module.networking.private_subnet_4
   ip_address_type    = "ipv4"
   load_balancer_type = "application"
   port               = 443

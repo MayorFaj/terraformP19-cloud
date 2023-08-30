@@ -67,8 +67,8 @@ resource "aws_lb" "int_alb" {
   security_groups    = [var.private_sg]
 
   subnets = [
-    var.priv_subnet_1,
-    var.priv_subnet_2
+    var.priv_subnet_3,
+    var.priv_subnet_4
   ]
   tags = merge(
     var.tags,

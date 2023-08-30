@@ -19,9 +19,9 @@ variable "private_sg" {
   description = "Security group for internal load balancer"
 }
 
-variable "priv_subnet_1" {}
+variable "priv_subnet_3" {}
 
-variable "priv_subnet_2" {}
+variable "priv_subnet_4" {}
 
 variable "vpc_id" {}
 
