@@ -30,6 +30,8 @@ resource "aws_efs_file_system" "pbl-efs" {
   encrypted  = true
   kms_key_id = aws_kms_key.pbl-kms.arn
 
+  force_destroy = true
+
   tags = merge(
     var.tags,
     {
