@@ -63,7 +63,6 @@ module "alb" {
   load_balancer_type = "application"
   port               = 443
   protocol           = "HTTPS"
-  key_pair           = module.KEY.KEY.name
 }
 
 module "security" {
@@ -94,6 +93,7 @@ module "autoscaling" {
   wordpress-alb-tg = module.alb.wordpress_tg
   tooling-alb-tg   = module.alb.tooling_tg
   instance_profile = module.networking.instance_profile
+  key_pair           = module.KEY.KEY.name
 }
 
 module "database" {
