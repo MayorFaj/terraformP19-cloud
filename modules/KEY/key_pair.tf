@@ -1,4 +1,4 @@
-#--KEY-keypair.tf
+#----KEY-keypair.tf
 
 resource "aws_key_pair" "terraform-pbl19" {
   key_name   = "pbl19-key"
