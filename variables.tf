@@ -82,9 +82,9 @@ variable "ami-jfrog" {
   description = "AMI ID for compute"
 }
 
-variable "key_pair" {
-  type = string
-}
+# variable "key_pair" {
+#   type = string
+# }
 
 variable "myip" {
   type = list(any)
