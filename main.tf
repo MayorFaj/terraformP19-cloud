@@ -46,6 +46,10 @@ module "networking" {
   preferred_number_of_priv_subnets = var.preferred_number_of_priv_subnets
 }
 
+module "KEY" {
+  source           = "./modules/KEY"
+}
+
 module "alb" {
   source             = "./modules/alb"
   vpc_id             = module.networking.vpc_id
@@ -59,6 +63,7 @@ module "alb" {
   load_balancer_type = "application"
   port               = 443
   protocol           = "HTTPS"
+  key_pair           = module.KEY.KEY.name
 }
 
 module "security" {
@@ -110,7 +115,7 @@ module "filesystem" {
 
 module "compute" {
   source = "./modules/compute"
-  key_pair = module.autoscaling.key_pair
+  key_pair = module.KEY.KEY.name
   subnets-compute = module.networking.public_subnet_2
   sg-compute = module.security.compute_sg
   ami-jenkins = var.ami-jenkins

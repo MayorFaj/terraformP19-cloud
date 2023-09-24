@@ -29,10 +29,10 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 #   filename = "/Users/mozart/.ssh/id_rsa.pub"
 # }
 
-resource "aws_key_pair" "terraform-pbl19" {
-  key_name   = "pbl19-key"
-  public_key = file("../modules/autoscaling/pbl19-key.pub")
-}
+# resource "aws_key_pair" "terraform-pbl19" {
+#   key_name   = "pbl19-key"
+#   public_key = file("../modules/autoscaling/pbl19-key.pub")
+# }
 
 #-----------------------------------------------------
 #create bastion launch template
@@ -45,7 +45,7 @@ resource "aws_launch_template" "bastion-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = aws_key_pair.terraform-pbl19
+  key_name = var.key_pair
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -106,7 +106,7 @@ resource "aws_launch_template" "nginx-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = aws_key_pair.terraform-pbl19
+  key_name = var.key_pair
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
