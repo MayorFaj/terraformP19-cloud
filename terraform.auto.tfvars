@@ -19,19 +19,19 @@ tags = {
   Billing-Account = "953523290929"
 }
 
-ami-bastion = "ami-06f70a42ac193e4c2"
+ami-bastion = "ami-09084caafe3942e5d"
 
-ami-nginx = "ami-09801e5b89a48363c"
+ami-nginx = "ami-0afde439fdf5c5176"
 
-ami-wordpress = "ami-0d3b1fe306c70acbe"
+ami-wordpress = "ami-09da9609282ec2b63"
 
-ami-tooling = "ami-0d3b1fe306c70acbe"
+ami-tooling = "ami-09da9609282ec2b63"
 
-ami-jenkins = "ami-059389aab1b29d8bc"
+ami-jenkins = "ami-03ea1dd6c7623ad2e"
 
-ami-sonar = "ami-059389aab1b29d8bc"
+ami-sonar = "ami-03ea1dd6c7623ad2e"
   
-ami-jfrog = "ami-059389aab1b29d8bc"
+ami-jfrog = "ami-03ea1dd6c7623ad2e"
 
 account_no = "953523290929"
 
@@ -39,5 +39,5 @@ master-password = "Ashabi_123"
 
 master-username = "mayor"
 
-key_pair = "pal-key"
+#key_pair = "pal-key"
 

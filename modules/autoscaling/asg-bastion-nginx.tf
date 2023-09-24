@@ -24,22 +24,15 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 }
 
 
-#create key pair
-# resource "null_resource" "generate_ssh_key" {
-#   provisioner "local-exec" {
-#     command = "ssh-keygen -t rsa -b 4096 -N '' -f /Users/mozart/.ssh/"
-#   }
-# }
-
 # data "local_file" "public_key" {
 #   depends_on = [ null_resource.generate_ssh_key ]
 #   filename = "/Users/mozart/.ssh/id_rsa.pub"
 # }
 
-# resource "aws_key_pair" "terraform-pbl" {
-#   key_name   = "pbl-key"
-#   public_key = file("../module/autoscaling/pbl-key.pub")
-# }
+resource "aws_key_pair" "terraform-pbl19" {
+  key_name   = "pbl19-key"
+  public_key = file("../modules/autoscaling/pbl19-key.pub")
+}
 
 #-----------------------------------------------------
 #create bastion launch template
@@ -52,7 +45,7 @@ resource "aws_launch_template" "bastion-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = var.key_pair
+  key_name = aws_key_pair.terraform-pbl19
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -113,7 +106,7 @@ resource "aws_launch_template" "nginx-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = var.key_pair
+  key_name = aws_key_pair.terraform-pbl19
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -166,10 +159,10 @@ resource "aws_autoscaling_group" "nginx-asg" {
 
 #--- attaching autoscaling group of nginx to external load balancer
 
-resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
-  autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
-  lb_target_group_arn    = var.nginx-alb-tg
-}
+# resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
+#   autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
+#   lb_target_group_arn    = var.nginx-alb-tg
+# }
 
 
 

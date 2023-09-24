@@ -10,7 +10,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = var.key_pair
+  key_name = aws_key_pair.terraform-pbl19
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -62,10 +62,10 @@ resource "aws_autoscaling_group" "wordpress-asg" {
 
 # attaching autoscaling group of  wordpress application to internal loadbalancer
 
-resource "aws_autoscaling_attachment" "asg_attachment_wordpress" {
-  autoscaling_group_name = aws_autoscaling_group.wordpress-asg.id
-  lb_target_group_arn    = var.wordpress-alb-tg
-}
+# resource "aws_autoscaling_attachment" "asg_attachment_wordpress" {
+#   autoscaling_group_name = aws_autoscaling_group.wordpress-asg.id
+#   lb_target_group_arn    = var.wordpress-alb-tg
+# }
 
 # launch template for toooling
 resource "aws_launch_template" "tooling-launch-template" {
@@ -77,7 +77,7 @@ resource "aws_launch_template" "tooling-launch-template" {
     name = var.instance_profile
   }
 
-  key_name = var.key_pair
+  key_name = aws_key_pair.terraform-pbl19
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
@@ -132,7 +132,7 @@ resource "aws_autoscaling_group" "tooling-asg" {
 
 # attaching autoscaling group of  tooling application to internal loadbalancer
 
-resource "aws_autoscaling_attachment" "asg_attachment_tooling" {
-  autoscaling_group_name = aws_autoscaling_group.tooling-asg.id
-  lb_target_group_arn    = var.tooling-alb-tg
-}
+# resource "aws_autoscaling_attachment" "asg_attachment_tooling" {
+#   autoscaling_group_name = aws_autoscaling_group.tooling-asg.id
+#   lb_target_group_arn    = var.tooling-alb-tg
+# }

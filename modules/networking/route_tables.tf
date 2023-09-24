@@ -48,6 +48,6 @@ resource "aws_route" "pub-rtb-route" {
 #associate the public subnets to the public route table
 resource "aws_route_table_association" "pub-subnets-assoc" {
   count          = length(aws_subnet.pbl-public[*].id)
-  subnet_id      = aws_subnet.pbl-public.*.id[count.index]
+  subnet_id      = element(aws_subnet.pbl-public[*].id, count.index)
   route_table_id = aws_route_table.pub-rtb.id
 }
