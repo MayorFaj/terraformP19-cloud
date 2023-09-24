@@ -46,10 +46,6 @@ module "networking" {
   preferred_number_of_priv_subnets = var.preferred_number_of_priv_subnets
 }
 
-module "KEY" {
-  source           = "./modules/KEY"
-}
-
 module "alb" {
   source             = "./modules/alb"
   vpc_id             = module.networking.vpc_id
