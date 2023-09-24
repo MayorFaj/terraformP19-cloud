@@ -5,7 +5,7 @@
 # }
 
 variable "private_key_path" {
-  default = "~/.ssh/MyKeyPairName.pem"
+  default = "~/.ssh/pbl19-key.pub"
 }
 
 resource "aws_key_pair" "terraform-pbl19" {
