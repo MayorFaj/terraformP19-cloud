@@ -89,7 +89,6 @@ module "autoscaling" {
   wordpress-alb-tg = module.alb.wordpress_tg
   tooling-alb-tg   = module.alb.tooling_tg
   instance_profile = module.networking.instance_profile
-  # key_pair = var.key_pair
 }
 
 module "database" {
