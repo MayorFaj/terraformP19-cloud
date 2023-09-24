@@ -5,7 +5,7 @@
 # }
 
 variable "private_key_path" {
-  default = "../modules/KEY/pbl19-key.pub"
+  default = "terraform-cloud/modules/KEY/pbl19-key.pub"
 }
 
 resource "aws_key_pair" "terraform-pbl19" {
