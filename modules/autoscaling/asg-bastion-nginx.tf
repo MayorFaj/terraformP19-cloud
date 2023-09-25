@@ -68,7 +68,7 @@ resource "aws_launch_template" "bastion-launch-template" {
 
 }
 
-# ---- Autoscaling for bastion  hosts
+# ------ Autoscaling for bastion  hosts
 
 resource "aws_autoscaling_group" "bastion-asg" {
   name                      = "bastion-asg"
