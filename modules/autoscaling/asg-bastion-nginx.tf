@@ -36,6 +36,7 @@ resource "aws_autoscaling_notification" "mayor_notifications" {
 
 #-----------------------------------------------------
 #create bastion launch template
+
 resource "aws_launch_template" "bastion-launch-template" {
   image_id               = var.ami-bastion
   instance_type          = "t2.micro"

@@ -52,29 +52,13 @@ resource "aws_subnet" "pbl-public" {
 }
 
 
-# #create private subnets ---
-# resource "aws_subnet" "pbl-private" {
-#   count                   = var.preferred_number_of_priv_subnets == null ? legth(data.aws_availability_zones.available.names) : var.preferred_number_of_priv_subnets
-#   vpc_id                  = aws_vpc.main.id
-#   cidr_block              = var.private_cidr[count.index]
-#   map_public_ip_on_launch = false
-#   availability_zone       = random_shuffle.az_list.result[count.index]
-
-#   tags = merge(
-#     var.tags,
-#     {
-#       Name = "pbl-private-${count.index + 1}"
-#     },
-#   )
-# }
-
-
+#create private subnets ---
 resource "aws_subnet" "pbl-private" {
-  count                   = length(var.private_cidr) * 2  # Create subnets in 2 AZs
+  count                   = var.preferred_number_of_priv_subnets == null ? legth(data.aws_availability_zones.available.names) : var.preferred_number_of_priv_subnets
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = element(var.private_cidr, count.index % length(var.private_cidr))
+  cidr_block              = var.private_cidr[count.index]
   map_public_ip_on_launch = false
-  availability_zone       = element(random_shuffle.az_list.result, count.index % 2)  # Shuffle between the first 2 AZs
+  availability_zone       = random_shuffle.az_list.result[count.index]
 
   tags = merge(
     var.tags,
@@ -83,3 +67,4 @@ resource "aws_subnet" "pbl-private" {
     },
   )
 }
+
